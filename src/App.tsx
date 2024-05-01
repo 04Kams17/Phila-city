@@ -37,6 +37,8 @@ import React, { useCallback, useEffect, useMemo, useState } from "react";
 
 import { Auth } from "./Auth";
 import { history } from "./history";
+import { parseJsonConfigFileContent } from "typescript";
+import { PhillyWidgetProvider } from "./providers/PhillyWidgetProvider";
 
 const App: React.FC = () => {
   const [iModelId, setIModelId] = useState(process.env.IMJS_IMODEL_ID);
@@ -182,6 +184,7 @@ const App: React.FC = () => {
             },
           }),
           new MeasureToolsUiItemsProvider(),
+          new PhillyWidgetProvider()
         ]}
       />
     </div>
